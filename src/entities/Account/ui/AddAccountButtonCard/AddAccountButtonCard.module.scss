@@ -1,0 +1,16 @@
+.card {
+  width: 16.875rem;
+  height: 7.375rem;
+  padding: var(--padding-20, 1.25rem);
+  border-radius: var(--radius-12, 12px);
+  border: 1px var(--color-grey-light);
+  background: var(--color-fill-grey-dark);
+  box-shadow: var(--shadow-block);
+  cursor: pointer;
+  display: flex;
+  flex-shrink: 0;
+
+  &:hover {
+    box-shadow: var(--shadow-popup);
+  }
+}

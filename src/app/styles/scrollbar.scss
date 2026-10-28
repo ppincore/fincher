@@ -1,0 +1,30 @@
+$scrollbar-radius: 8px;
+
+* {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    border-radius: $scrollbar-radius;
+  }
+
+  &::-webkit-scrollbar-track {
+    &:active {
+      background: var(--color-text-grey-light);
+      border-radius: $scrollbar-radius;
+    }
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-text-grey);
+    transition: background-color 0.2s ease;
+    border-radius: $scrollbar-radius;
+
+    &:hover {
+      background-color: var(--color-text-grey);
+    }
+
+    &:active {
+      background-color: var(--color-text-grey);
+    }
+  }
+}

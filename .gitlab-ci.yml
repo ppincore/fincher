@@ -1,0 +1,17 @@
+include:
+  - ci/common.yaml
+  - ci/scripts.yaml
+  - ci/install-dependencies.yaml
+  - ci/eslint.yaml
+  - ci/stylelint.yaml
+  - ci/prettier.yaml
+  - ci/build.yaml
+  - ci/build-image.yaml
+  - ci/deploy.yaml
+
+stages:
+  - install
+  - lint
+  - build
+  - build-image
+  - deploy

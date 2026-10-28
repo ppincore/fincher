@@ -1,0 +1,70 @@
+.app_light-theme {
+  // Brand
+  --color-brand-dark: #266488;
+  --color-brand-primary: #40a7e3;
+  --color-brand-light: #66b9e9;
+
+  // Primary
+  --color-primary-disabled: #b3dcf4;
+  --color-primary-focused: #d9edf9;
+
+  // Text
+  --color-text-primary: #101828;
+  --color-text-primary-disabled: #66b9e9;
+  --color-text-secondary: #475467;
+  --color-text-brand: #40a7e3;
+  --color-text-brand-dark: #266488;
+  --color-text-grey-dark: #77797e;
+  --color-text-grey: #d1d3d9;
+  --color-text-grey-light: #eaecf0;
+  --color-text-blue: #1ca6ba;
+  --color-text-successful: #17b26a;
+  --color-text-danger: #f53535;
+  --color-text-danger-dark: #d50b0b;
+  --color-text-danger-disabled: #fdcdcd;
+  --color-text-white: #fff;
+
+  // Danger
+  --color-danger: #f53535;
+  --color-danger-dark: #d50b0b;
+  --color-danger-focused: #fbb3b3;
+  --color-danger-disabled: #fdcdcd;
+
+  // Successful
+  --color-successful: #17b26a;
+  --color-blue: #1ca6ba;
+
+  // Grey
+  --color-grey-dark: #77797e;
+  --color-grey: #d1d3d9;
+  --color-grey-light: #eaecf0;
+
+  // Fill
+  --color-fill-white: #fff;
+  --color-fill-primary: #f2f9fd;
+  --color-fill-grey: #f8f8f8;
+  --color-fill-grey-dark: #eee;
+  --color-fill-blue: #dff4f9;
+  --color-fill-successful: #ddfbed;
+  --color-fill-danger: #feebeb;
+
+  // Shadows  ============================================================================================================================================================
+
+  // Shadow
+  --shadow: 0 1px 2px 0 #0a090b0d;
+
+  // Shadow popup
+  --shadow-popup: 0px 0px 10px 0px rgb(10 9 11 / 10%);
+
+  // Shadow block
+  --shadow-block: 0px 0px 5px 0px rgb(209 211 217 / 15%);
+
+  // Focused Primary
+  --shadow-focused-primary: 0 0 0 4px var(--color-primary-focused);
+
+  // Focused Grey
+  --shadow-focused-grey: 0 0 0 4px var(--color-fill-grey);
+
+  // Focused Danger
+  --shadow-focused-danger: 0 0 0 4px var(--color-danger-focused);
+}

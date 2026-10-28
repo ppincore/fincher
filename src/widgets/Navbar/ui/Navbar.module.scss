@@ -1,0 +1,9 @@
+.navbar {
+  width: 100%;
+  height: var(--navbar-height);
+  background: var(--color-fill-grey);
+  padding: var(--padding-6, 0.375rem) var(--padding-16, 1rem);
+  border-bottom: var(--padding-1, 1px) solid var(--color-grey-light);
+  display: flex;
+  align-items: center;
+}

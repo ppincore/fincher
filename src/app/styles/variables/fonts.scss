@@ -1,0 +1,81 @@
+:root {
+  // FONT
+  --font-family-main: "Inter", arial;
+
+  // H1 Regular
+  --font-size-h1: 1.875rem;
+  --font-line-h1: 2.375rem;
+  --font-h1: var(--font-size-h1) / var(--font-line-h1) var(--font-family-main);
+
+  // H1 Medium
+  --font-h1-medium: 500 var(--font-h1);
+
+  // H1 Semibold
+  --font-h1-semibold: 600 var(--font-h1);
+
+  // H2 Regular
+  --font-size-h2: 1.5rem;
+  --font-line-h2: 2rem;
+  --font-h2: var(--font-size-h2) / var(--font-line-h2) var(--font-family-main);
+
+  // H2 Medium
+  --font-h2-medium: 500 var(--font-h2);
+
+  // H2 Semibold
+  --font-h2-semibold: 600 var(--font-h2);
+
+  // H3 Regular
+  --font-size-h3: 1.25rem;
+  --font-line-h3: 1.875rem;
+  --font-h3: var(--font-size-h3) / var(--font-line-h3) var(--font-family-main);
+
+  // H3 Medium
+  --font-h3-medium: 500 var(--font-h3);
+
+  // H3 Semibold
+  --font-h3-semibold: 600 var(--font-h3);
+
+  // H4 Regular
+  --font-size-h4: 1.125rem;
+  --font-line-h4: 1.625rem;
+  --font-h4: var(--font-size-h4) / var(--font-line-h4) var(--font-family-main);
+
+  // H4 Medium
+  --font-h4-medium: 500 var(--font-h4);
+
+  // H4 Semibold
+  --font-h4-semibold: 600 var(--font-h4);
+
+  // Body1 Regular (Default)
+  --font-size-body1: 1rem;
+  --font-line-body1: 1.5rem;
+  --font-body1: var(--font-size-body1) / var(--font-line-body1) var(--font-family-main);
+
+  // Body1 Medium (Default)
+  --font-body1-medium: 500 var(--font-body1);
+
+  // Body1 Semibold (Default)
+  --font-body1-semibold: 600 var(--font-body1);
+
+  // Body2 Regular
+  --font-size-body2: 0.875rem;
+  --font-line-body2: 1.25rem;
+  --font-body2: var(--font-size-body2) / var(--font-line-body2) var(--font-family-main);
+
+  // Body2 Medium
+  --font-body2-medium: 500 var(--font-body2);
+
+  // Body2 Semibold
+  --font-body2-semibold: 600 var(--font-body2);
+
+  // Caption1 Regular
+  --font-size-caption: 0.75rem;
+  --font-line-caption: 1.125rem;
+  --font-caption: var(--font-size-caption) / var(--font-line-caption) var(--font-family-main);
+
+  // Caption1 Medium
+  --font-caption-medium: 500 var(--font-caption);
+
+  // Caption1 Semibold
+  --font-caption-semibold: 600 var(--font-caption);
+}

@@ -1,0 +1,87 @@
+%theme {
+  &.brand {
+    --chip-bg: var(--color-fill-primary);
+    --chip-color: var(--color-text-brand);
+    --chip-icon-color: var(--color-brand-light);
+  }
+
+  &.grey {
+    --chip-bg: var(--color-fill-grey);
+    --chip-color: var(--color-text-primary);
+    --chip-icon-color: var(--color-grey);
+  }
+
+  &.blue {
+    --chip-bg: var(--color-fill-blue);
+    --chip-color: var(--color-text-blue);
+    --chip-icon-color: var(--color-text-blue);
+  }
+
+  &.successful {
+    --chip-bg: var(--color-fill-successful);
+    --chip-color: var(--color-text-successful);
+    --chip-icon-color: var(--color-text-successful);
+  }
+
+  &.danger {
+    --chip-bg: var(--color-fill-danger);
+    --chip-color: var(--color-text-danger);
+    --chip-icon-color: var(--color-text-danger);
+  }
+
+  &.disabled {
+    --chip-bg: var(--color-fill-grey-dark);
+    --chip-color: var(--color-text-grey);
+    --chip-icon-color: var(--color-text-grey);
+
+    cursor: not-allowed;
+  }
+}
+
+%size {
+  &.s {
+    --chip-font: var(--font-caption-medium);
+    --chip-padding: var(--padding-2, 0.125rem) var(--padding-8, 0.5rem);
+    --chip-icon-measure: 0.625rem;
+  }
+
+  &.m {
+    --chip-font: var(--font-body2-medium);
+    --chip-padding: var(--padding-2, 0.125rem) var(--padding-8, 0.5rem);
+    --chip-icon-measure: 0.625rem;
+  }
+
+  &.l {
+    --chip-font: var(--font-body2-medium);
+    --chip-padding: var(--padding-4, 0.25rem) var(--padding-10, 0.625rem);
+    --chip-icon-measure: 0.75rem;
+  }
+}
+
+.chip,
+%chip {
+  @extend %theme, %size;
+
+  display: inline-block;
+  border-radius: var(--spacing-6, 0.375rem);
+  font: var(--chip-font);
+  padding: var(--chip-padding); // size
+  background: var(--chip-bg); // theme
+  color: var(--chip-color);
+}
+
+.button {
+  @extend %chip;
+
+  cursor: pointer;
+  display: inline-flex;
+  padding-right: var(--padding-4, 0.25rem);
+  gap: var(--spacing-4, 0.25rem);
+  align-items: center;
+
+  .icon {
+    color: var(--chip-icon-color);
+    min-width: var(--chip-icon-measure);
+    min-height: var(--chip-icon-measure);
+  }
+}

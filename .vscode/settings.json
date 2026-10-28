@@ -1,0 +1,39 @@
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "files.eol": "\n",
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "prettier.configPath": "config/linting/.prettierrc.json",
+  "prettier.ignorePath": "config/linting/.prettierignore",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "stylelint.configFile": "config/linting/.stylelintrc.json",
+  "stylelint.snippet": ["css", "less", "postcss", "scss", "sass"],
+  "stylelint.validate": ["css", "less", "postcss", "scss", "sass"],
+  "stylelint.enable": true,
+  "[scss]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
+  },
+  "i18n-ally.enabledFrameworks": ["react", "i18next", "general"],
+  "i18n-ally.localesPaths": ["public/locales", "src/shared/config/i18n"],
+  "i18n-ally.sourceLanguage": "ru",
+  "i18n-ally.keystyle": "nested"
+}

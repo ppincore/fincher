@@ -1,0 +1,8 @@
+prettier:
+  stage: lint
+  extends:
+    - .image-node
+    - .with-node-modules
+  allow_failure: true
+  script:
+    - npm run prettier

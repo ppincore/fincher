@@ -1,0 +1,10 @@
+{
+  "**/*.json": [
+    "prettier --check --write --config config/linting/.prettierrc.json --ignore-path config/linting/.prettierignore"
+  ],
+  "**/*.{css,scss}": ["stylelint --fix -c config/linting/.stylelintrc.json"],
+  "**/*.{ts,tsx}": [
+    "eslint --fix --max-warnings=0",
+    "prettier --check --write --config config/linting/.prettierrc.json --ignore-path config/linting/.prettierignore"
+  ]
+}

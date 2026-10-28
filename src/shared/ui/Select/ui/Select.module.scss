@@ -1,0 +1,54 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+
+  &:has(select:disabled) {
+    opacity: 0.7;
+  }
+}
+
+select:disabled {
+  opacity: 0.7;
+}
+
+.label {
+  margin-bottom: 6px;
+  color: var(--color-text-primary);
+}
+
+.chevron {
+  position: absolute;
+  right: 6px;
+  top: 12px;
+  bottom: 12px;
+}
+
+.select {
+  width: 100%;
+  background: none;
+  outline: none;
+  color: var(--color-text-primary);
+  padding: 10px;
+  padding-left: 12px;
+  padding-right: 8px;
+  margin-right: 1rem;
+  border: 1px solid var(--color-grey);
+  border-radius: 8px;
+  appearance: none;
+
+  &-wrapper {
+    position: relative;
+  }
+
+  // Not perfect decision
+  &:focus-within {
+    & + .chevron {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.option {
+  color: var(--color-text-primary);
+  background: var(--color-fill-white);
+}

@@ -1,0 +1,17 @@
+build-image:
+  stage: build-image
+  extends:
+    - .image-kaniko
+    - .only-on-develop
+  before_script:
+    - echo "${SSL_CRT}" > "${CI_PROJECT_DIR}/finance.crt"
+    - echo "${SSL_KEY}" > "${CI_PROJECT_DIR}/finance.key"
+    - cat "${ENV}" > "${CI_PROJECT_DIR}/.env"
+    - !reference [.get-image-name, script]
+    - !reference [.create-docker-auth, script]
+  script:
+    - /kaniko/executor
+      --context "${CI_PROJECT_DIR}"
+      --dockerfile "${CI_PROJECT_DIR}/Dockerfile"
+      --destination "${TARGET_IMAGE_NAME}"
+      --single-snapshot

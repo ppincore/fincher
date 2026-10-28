@@ -1,0 +1,28 @@
+deploy:
+  stage: deploy
+  variables:
+    FRONTEND_PORT: 3000
+    REMOTE_USER: gitlab
+    HOST: $SERVER_HOST
+    KANIKO_DIR: '/kaniko/.docker'
+    KANIKO_CONFIG: '$KANIKO_DIR/config.json'
+    REMOTE_HOST_DOCKER_CONFIG_PATH: '/home/${REMOTE_USER}/front/docker-config/'
+  extends:
+    - .image-ssh
+    - .only-on-develop
+  before_script:
+    - mkdir -p ${KANIKO_DIR}
+    - !reference [.create-docker-auth, script]
+    - !reference [.get-image-name, script]
+    - !reference [.ssh-auth, script]
+
+  script:
+    - ssh ${REMOTE_USER}@${HOST} "mkdir -p \"${REMOTE_HOST_DOCKER_CONFIG_PATH}\""
+    - scp -i "/tmp/id_rsa" ${KANIKO_CONFIG} "${REMOTE_USER}@${HOST}:${REMOTE_HOST_DOCKER_CONFIG_PATH}"
+    - |
+      ssh ${REMOTE_USER}@${HOST} "/bin/bash -s" << EOS 
+        docker stop front || true
+        while true; do curl -qm1 127.0.0.1:${FRONTEND_PORT} || break && sleep 10; done
+        docker rm front || true
+        docker --config ${REMOTE_HOST_DOCKER_CONFIG_PATH} run -d --name front -p ${FRONTEND_PORT}:443 --pull=always --restart=unless-stopped ${TARGET_IMAGE_NAME}
+      EOS

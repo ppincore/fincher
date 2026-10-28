@@ -1,0 +1,109 @@
+@mixin animation($name, $delay) {
+  animation-name: $name;
+  animation-duration: $delay;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.drawer {
+  inset: 0;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+
+  .content {
+    position: fixed;
+    background: var(--color-fill-white);
+    max-width: 30%;
+    height: 100vh;
+    right: -100%;
+    top: 0;
+  }
+
+  &.opened {
+    pointer-events: auto;
+    opacity: 1;
+    right: 0;
+    z-index: var(--z-index-drawer);
+
+    .overlay {
+      @include animation(open-overlay, 0.8s);
+    }
+
+    .content {
+      @include animation(open-content, 0.7s);
+    }
+  }
+
+  &.closing {
+    .overlay {
+      @include animation(close-overlay, 0.8s);
+    }
+
+    .content {
+      @include animation(close-content, 0.9s);
+    }
+  }
+}
+
+@keyframes open-content {
+  0% {
+    right: -100%;
+  }
+
+  100% {
+    right: 0;
+  }
+}
+
+@keyframes open-overlay {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes close-content {
+  0% {
+    right: 0;
+  }
+
+  100% {
+    right: -100%;
+  }
+}
+
+@keyframes close-overlay {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.header {
+  padding: var(--padding-12, 0.75rem) var(--padding-20, 1.25rem);
+  border-bottom: 1px solid var(--color-grey-light, #eaecf0);
+}
+
+.body {
+  padding: var(--padding-12, 0.75rem) var(--padding-20, 1.25rem);
+  flex: 1 0 auto;
+  overflow: auto;
+}
+
+.footer {
+  padding: var(--padding-20, 1.25rem);
+  display: flex;
+
+  .btn {
+    flex: 1 0 50%;
+  }
+}

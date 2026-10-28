@@ -1,0 +1,59 @@
+.sidebar {
+  height: 100vh;
+  min-width: var(--sidebar-width);
+  position: relative;
+  border-right: var(--padding-1, 1px) solid var(--color-grey-light);
+  background: var(--color-fill-white);
+
+  & > div {
+    overflow: hidden;
+    height: 100%;
+    padding-bottom: 3px;
+  }
+}
+
+.accordion-items {
+  margin-left: 12px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.item__text {
+  white-space: nowrap;
+  margin-left: 10px;
+}
+
+.navigation-menu {
+  padding: var(--padding-16, 1rem);
+  padding-top: 0;
+  flex: 1 1 auto;
+  width: 100%;
+}
+
+.links {
+  overflow-x: auto;
+  flex: 1 1 auto;
+  width: calc(100% + (var(--padding-16, 1rem) * 2));
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  margin: calc(var(--padding-16, 1rem) * -1);
+  padding: var(--padding-16, 1rem);
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}
+
+.logo {
+  padding: var(--padding-16, 1rem);
+  width: 100%;
+}
+
+.footer {
+  padding: var(--padding-16, 1rem);
+}

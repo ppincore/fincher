@@ -1,0 +1,79 @@
+.size {
+  &-24 {
+    --icon-size: var(--icon-24, 1.5rem);
+  }
+
+  &-20 {
+    --icon-size: var(--icon-20, 1.25rem);
+  }
+
+  &-18 {
+    --icon-size: var(--icon-18, 1.125rem);
+  }
+
+  &-16 {
+    --icon-size: var(--icon-16, 1rem);
+  }
+
+  &-12 {
+    --icon-size: var(--icon-12, 0.75rem);
+  }
+
+  &-10 {
+    --icon-size: var(--icon-10, 0.625rem);
+  }
+}
+
+.color {
+  &-primary {
+    --icon-color: var(--color-text-primary);
+  }
+
+  &-secondary {
+    --icon-color: var(--color-text-secondary);
+  }
+
+  &-brand {
+    --icon-color: var(--color-text-brand);
+  }
+
+  &-grey {
+    --icon-color: var(--color-text-grey);
+  }
+
+  &-grey-light {
+    --icon-color: var(--color-text-grey-light);
+  }
+
+  &-grey-dark {
+    --icon-color: var(--color-text-grey-dark);
+  }
+
+  &-danger {
+    --icon-color: var(--color-text-danger);
+  }
+
+  &-danger-disabled {
+    --icon-color: var(--color-text-danger-disabled);
+  }
+
+  &-white {
+    --icon-color: var(--color-text-white);
+  }
+}
+
+.icon {
+  font-size: var(--icon-size);
+  color: var(--icon-color);
+  min-width: fit-content;
+  min-height: fit-content;
+}
+
+.button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}

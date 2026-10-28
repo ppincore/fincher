@@ -1,0 +1,84 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-finance}
+      POSTGRES_USER: ${POSTGRES_USER:-finance}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env.production}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U "$$POSTGRES_USER" -d "$$POSTGRES_DB"']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - internal
+
+  backend:
+    image: ${BACKEND_IMAGE:-personal-finance-backend:latest}
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 3001
+      PGHOST: db
+      PGPORT: 5432
+      PGDATABASE: ${POSTGRES_DB:-finance}
+      PGUSER: ${POSTGRES_USER:-finance}
+      PGPASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env.production}
+      JWT_SECRET: ${JWT_SECRET:?Set JWT_SECRET in .env.production}
+      FRONTEND_ORIGIN: ${PUBLIC_URL:?Set PUBLIC_URL in .env.production}
+      FRONTEND_URL: ${PUBLIC_URL:?Set PUBLIC_URL in .env.production}
+      SMTP_HOST: ${SMTP_HOST:-smtp.yandex.ru}
+      SMTP_PORT: ${SMTP_PORT:-465}
+      SMTP_SECURE: ${SMTP_SECURE:-true}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASS: ${SMTP_PASS:-}
+      SMTP_FROM: ${SMTP_FROM:-}
+    expose:
+      - '3001'
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - "fetch('http://127.0.0.1:3001/health').then((response) => process.exit(response.ok ? 0 : 1)).catch(() => process.exit(1))"
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - internal
+
+  frontend:
+    image: ${FRONTEND_IMAGE:-personal-finance-frontend:latest}
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        API: /api
+    restart: unless-stopped
+    ports:
+      - '${HTTP_PORT:-8080}:80'
+    healthcheck:
+      test: ['CMD', 'wget', '--quiet', '--tries=1', '--spider', 'http://127.0.0.1/healthz']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - internal
+
+volumes:
+  postgres_data:
+
+networks:
+  internal:

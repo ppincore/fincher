@@ -1,0 +1,18 @@
+.MainLayout {
+  min-height: 100vh;
+  display: grid;
+  grid-template: "sidebar header" min-content "sidebar content" 1fr / min-content 1fr;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.content {
+  grid-area: content;
+  overflow: hidden;
+}
+
+.header {
+  grid-area: header;
+}

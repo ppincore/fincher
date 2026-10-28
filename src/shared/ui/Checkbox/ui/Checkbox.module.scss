@@ -1,0 +1,122 @@
+.wrapper {
+  width: fit-content;
+}
+
+.checkmark {
+  height: var(--checkmark-measure);
+  width: var(--checkmark-measure);
+  position: relative;
+  border-radius: var(--radius-4);
+  border: 1px solid var(--color-grey);
+  background-color: var(--color-fill-white);
+  box-shadow: var(--shadow);
+  display: flex;
+}
+
+.check-icon {
+  display: none;
+  stroke: var(--color-fill-white);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  scale: var(--check-icon-scale);
+}
+
+.size {
+  &S {
+    --checkmark-measure: 1rem;
+    --check-icon-scale: 0.8;
+    --checkbox-font: var(--font-body2-medium);
+
+    // positioning for .check-icon
+    & .checkmark {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &M {
+    --checkmark-measure: 1.25rem;
+    --check-icon-scale: 1;
+    --checkbox-font: var(--font-body1-medium);
+
+    // positioning for .check-icon
+    & .check-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+.label {
+  user-select: none;
+  padding-left: 0.5rem;
+  font: var(--checkbox-font);
+  color: var(--color-text-primary, #101828);
+}
+
+.input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+
+  &:checked ~ .checkmark {
+    background-color: var(--color-brand-primary, #ff6b34);
+    --checkbox-hover-color: var(--color-brand-dark, #f25219);
+    --checkbox-focus-shadow: var(--shadow-focused-primary);
+
+    border: none;
+
+    & .check-icon {
+      display: block;
+    }
+  }
+
+  &:focus ~ .checkmark {
+    box-shadow: var(--checkbox-focus-shadow);
+  }
+
+  &:disabled {
+    & ~ .checkmark {
+      cursor: not-allowed;
+      border: 1px solid var(--color-grey-light, #eaecf0);
+      --checkbox-hover-color: none;
+    }
+
+    & ~ .label {
+      cursor: not-allowed;
+      color: var(--color-grey-dark, #77797e);
+    }
+  }
+
+  &:checked:disabled ~ .checkmark {
+    background-color: var(--color-fill-grey, #f8f8f8);
+    --checkbox-hover-color: var(--color-fill-grey, #f8f8f8);
+
+    & .check-icon {
+      stroke: var(--color-grey, #d1d3d9);
+    }
+  }
+}
+
+.checkbox {
+  --checkbox-hover-color: var(--color-fill-grey, #f8f8f8);
+  --checkbox-focus-shadow: var(--shadow-focused-grey);
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  user-select: none;
+  cursor: pointer;
+
+  &:hover .input ~ .checkmark {
+    background-color: var(--checkbox-hover-color);
+  }
+}

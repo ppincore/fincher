@@ -1,0 +1,35 @@
+.page-number {
+  & > * {
+    user-select: none;
+    display: flex;
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+    padding: var(--padding-10, 10px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-8, 0.5rem);
+    background: var(--color-fill-white, #fff);
+    transition: all 0.3s ease;
+  }
+
+  button {
+    &:focus-visible {
+      background: var(--color-fill-primary, #fff0eb);
+    }
+
+    &:hover {
+      transition: all 0.3s ease;
+      background-color: var(--color-fill-grey, #f8f8f8);
+      cursor: pointer;
+    }
+  }
+
+  &.dots {
+    pointer-events: none;
+
+    &:hover {
+      background-color: transparent;
+      cursor: default;
+    }
+  }
+}

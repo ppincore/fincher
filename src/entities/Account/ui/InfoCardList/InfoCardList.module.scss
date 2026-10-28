@@ -1,0 +1,24 @@
+.scroll-wrapper {
+  height: fit-content;
+  width: 100%;
+  min-height: fit-content;
+  overflow-x: hidden;
+  position: relative;
+  padding-bottom: 6px;
+}
+
+.card-list {
+  overflow-x: hidden;
+  padding-bottom: 6px;
+  display: flex;
+  gap: var(--spacing-16, 1rem);
+  flex-direction: row;
+}
+
+.scroll-wrapper.has-scroll:hover {
+  padding-bottom: 0;
+
+  .card-list {
+    overflow-x: auto;
+  }
+}

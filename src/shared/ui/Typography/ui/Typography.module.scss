@@ -1,0 +1,101 @@
+%color {
+  &.primary {
+    --text-color: var(--color-text-primary);
+  }
+
+  &.secondary {
+    --text-color: var(--color-text-secondary);
+  }
+
+  &.brand {
+    --text-color: var(--color-text-brand);
+  }
+
+  &.grey {
+    --text-color: var(--color-text-grey);
+  }
+
+  &.grey-light {
+    --text-color: var(--color-text-grey-light);
+  }
+
+  &.grey-dark {
+    --text-color: var(--color-text-grey-dark);
+  }
+
+  &.danger {
+    --text-color: var(--color-text-danger);
+  }
+
+  &.danger-disabled {
+    --text-color: var(--color-text-danger-disabled);
+  }
+
+  &.white {
+    --text-color: var(--color-text-white);
+  }
+}
+
+%size {
+  &.heading1 {
+    --font: var(--font-h1);
+  }
+
+  &.heading2 {
+    --font: var(--font-h2);
+  }
+
+  &.heading3 {
+    --font: var(--font-h3);
+  }
+
+  &.heading4 {
+    --font: var(--font-h4);
+  }
+
+  &.body1 {
+    --font: var(--font-body1);
+  }
+
+  &.body2 {
+    --font: var(--font-body2);
+  }
+
+  &.caption1 {
+    --font: var(--font-caption);
+  }
+}
+
+%weight {
+  &.regular {
+    --font-weight: 400;
+  }
+
+  &.medium {
+    --font-weight: 500;
+  }
+
+  &.semibold {
+    --font-weight: 600;
+  }
+}
+
+.text {
+  @extend %size, %color, %weight;
+
+  color: var(--text-color);
+  font: var(--font);
+  font-weight: var(--font-weight);
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.center {
+  text-align: center;
+}

@@ -1,0 +1,18 @@
+@use "reset";
+@use "variables/global";
+@use "themes/normal";
+@use "themes/dark";
+@use "variables/fonts";
+@use "variables/spacings";
+@use "variables/icons";
+@use "scrollbar";
+
+body {
+  font: var(--font-body1);
+  color: var(--color-text-primary);
+}
+
+.app {
+  background: var(--color-fill-white);
+  min-height: 100vh;
+}

@@ -1,0 +1,17 @@
+.table-header {
+  background: var(--color-fill-white, #fff);
+  border-radius: var(--radius-8, 8px) var(--radius-8, 8px) 0 0;
+  position: sticky;
+  top: 0;
+  z-index: var(--z-index-table-header, 1);
+
+  tr th {
+    border-radius: var(--radius-8, 8px) var(--radius-8, 8px) 0 0;
+  }
+
+  &-cell {
+    border-bottom: 1px solid var(--color-grey-light, #eaecf0);
+    padding: var(--padding-14, 0.875rem) var(--padding-16, 1rem);
+    background: var(--color-fill-white, #fff);
+  }
+}

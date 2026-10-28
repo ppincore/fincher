@@ -1,0 +1,36 @@
+.table {
+  &-row {
+    transition: 0.2s background-color;
+
+    &:hover {
+      background: var(--color-fill-grey, #f8f8f8);
+    }
+
+    &.active {
+      background: var(--color-primary-focused, #ffe1d6);
+    }
+  }
+
+  &-body {
+    border-radius: 0 0 var(--radius-8, 8px) var(--radius-8, 8px);
+
+    :last-child > td {
+      border-bottom: none;
+
+      &:first-child {
+        border-radius: 0 0 0 var(--radius-8, 8px);
+      }
+
+      &:last-child {
+        border-radius: 0 0 var(--radius-8, 8px) 0;
+      }
+    }
+  }
+
+  &-cell {
+    padding: var(--padding-12, 0.75rem) var(--spacing-16, 1rem);
+    border-bottom: 1px solid var(--color-grey-light, #eaecf0);
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}

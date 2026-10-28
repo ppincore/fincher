@@ -1,0 +1,13 @@
+.table-filter {
+  .btns {
+    min-width: 13rem;
+
+    & > * {
+      flex: 1 1 50%;
+    }
+  }
+}
+
+.search {
+  flex: 1 1 100%;
+}

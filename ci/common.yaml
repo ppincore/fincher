@@ -1,0 +1,40 @@
+.with-build:
+  needs:
+    - job: build
+      artifacts: true
+
+.with-node-modules:
+  needs:
+    - job: install-dependencies
+      artifacts: true
+
+.image-node:
+  image: node:24.3.0-alpine
+  tags:
+    - mini-s13
+
+.image-kaniko:
+  image:
+    name: gcr.io/kaniko-project/executor:v1.9.1-debug
+    entrypoint: ['']
+  tags:
+    - mini-s13
+
+.image-ssh:
+  image: kroniak/ssh-client
+  tags:
+    - mini-s13
+
+.only-on-main:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_COMMIT_REF_NAME == "main"
+      when: 'always'
+
+.only-on-develop:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+    - if: $CI_COMMIT_REF_NAME == "develop"
+      when: 'always'

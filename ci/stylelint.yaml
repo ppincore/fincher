@@ -1,0 +1,8 @@
+stylelint:
+  stage: lint
+  extends:
+    - .image-node
+    - .with-node-modules
+  allow_failure: true
+  script:
+    - npm run lint:scss

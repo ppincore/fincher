@@ -1,0 +1,11 @@
+build:
+  stage: build
+  extends:
+    - .image-node
+    - .with-node-modules
+  script:
+    - npm run build:prod
+  artifacts:
+    paths:
+      - build
+    expire_in: 1 day

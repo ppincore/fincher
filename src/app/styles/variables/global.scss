@@ -1,0 +1,13 @@
+:root {
+  // Sizes
+  --navbar-height: 3.25rem;
+  --page-content-height: calc(100vh - var(--navbar-height));
+  --sidebar-width: 17.5rem;
+  --size-bezel: 0.5rem;
+
+  // z-indexes
+  --z-index-modal: 10;
+  --z-index-drawer: 10;
+  --z-index-list-box: 10000;
+  --z-index-table-header: 1;
+}
